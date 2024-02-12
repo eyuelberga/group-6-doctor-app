@@ -64,6 +64,6 @@ https://www.conventionalcommits.org/ or check out the
    commit type. `scope` is just a short id that describes the scope of work. [How to create a new branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)
 
 3. Make and commit your changes following the
-   [commit convention](https://github.com/group-6-doctor-app/group-6-doctor-app/blob/main/CONTRIBUTING.md#commit-convention).
+   [commit convention](https://github.com/eyuelberga/group-6-doctor-app/blob/main/CONTRIBUTING.md#commit-convention).
 
 4. Create your PR with along with a description of your code. [How to create a Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)
