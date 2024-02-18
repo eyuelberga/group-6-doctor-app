@@ -7,8 +7,6 @@ var cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const exam = require('./models/exam');
-const { updateSearchIndex } = require('./models/exam');
 
 var app = express();
 
@@ -38,24 +36,9 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-//exam creation endpoint
-app.post("/api/exams",(req,res) =>{
-  const newExam = new exam ({
-    examID: req.body.examID,
-    patientID:req.body.patientID,
-    date:req.body.date,
-    keyFindings:req.body.keyFindings,
-    brixiaScore:req.body.brixiaScore,
-    imageURL:req.body.imageURL
-    });
-  newExam.save()
-    .then((savedExam) => {res.status(201).json({message:"Exam created",exam: savedExam})});
-    .catch((error) => {
-      console.error(error);
-      res.status(500).json({message: "Error creating Exam"});
-    });
 
-});
+   
+
   
 
 
