@@ -16,5 +16,6 @@ const connect = async() =>{
         console.someError('Error. Could not connect to MongoDB Atlas.',someError.message);
 
     }
+    throw someError;
 };
 module.exports ={connect};
