@@ -8,6 +8,7 @@ var cors = require('cors');
 const examsRouter = require('/api/exams');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const db = require('/db.js');
 
 var app = express();
 
@@ -18,6 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/exams',examsRouter);
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -38,7 +40,17 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-
+//db connection prior to server start
+(async()=>{
+  try{
+    await db.connect();
+    app.listen(9000,() =>{
+      console.log('Server listening on port 9000');
+    });
+  }catch(someError){
+    console.someError('Error establishing connection to MongoDB database.',someError.message);
+  }
+})();
    
 
   
