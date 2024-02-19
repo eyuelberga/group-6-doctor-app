@@ -5,10 +5,24 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 
-const examsRouter = require('/api/exams');
+const examsRouter = require('./models/exam');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const db = require('/db.js');
+
+
+const db = require('./db');
+//db connection prior to server start
+(async()=>{
+  try{
+    await db.connect();
+    app.listen(27017,() =>{
+      console.log('Server listening on port 9000');
+    });
+  }catch{
+    console.log('Error establishing connection to MongoDB database.');
+  }
+})();
+
 
 var app = express();
 
@@ -40,17 +54,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-//db connection prior to server start
-(async()=>{
-  try{
-    await db.connect();
-    app.listen(9000,() =>{
-      console.log('Server listening on port 9000');
-    });
-  }catch(someError){
-    console.someError('Error establishing connection to MongoDB database.',someError.message);
-  }
-})();
+
    
 
   
