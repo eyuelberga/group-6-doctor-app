@@ -1,23 +1,16 @@
-const mongoose = require('mongoose');
-require('dotenv').config();
+const mongo =require("mongoose");
+const db= "mongodb+srv://kgonz:hackdiv@techdive.u831ass.mongodb.net/?retryWrites=true&w=majority";
 
-const username = process.env.MONGO_USERNAME;
-const password = process.env.MONGO_PASSWORD;
-const databaseName = process.env.MONGO_DATABASE;
-
-const url = process.env.MONGO_URL;
-const connect = async() =>{
+const connectDB=async() =>{
     try{
-        await mongoose.connect(MONGO_URL);
-
-
-    
-    console.log('Succesful MongoDB Atlass connection!');
+        await mongo.connect(db);
+        console.log("****Succesfully connected to MongoDB database!");
+        
     }
-    catch(someError){
-        console.log('Error. Could not connect to MongoDB Atlas.');
-
+    catch(err){
+        console.error(err.message);
+        process.exit(1);
     }
-    throw someError;
 };
-module.exports ={connect};
+
+module.exports=connectDB;

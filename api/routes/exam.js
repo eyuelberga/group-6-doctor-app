@@ -3,7 +3,7 @@ const express=require('express');
 const Exam=require(/models/exam);
 const router=express.Router();
 
-
+//create new exam
 router.post("/api/exams",async (req,res) =>{
     if(!req.body.examID || !req.body.patientID || !req.body.date || !req.body.keyFindings || !req.body.brixiaScore || !req.body.imageURL){
         return res.status(400).json({error:"examID,patientID, date, keyFindings, brixiaScore and imageURL are required."});

@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 const patientSchema = new mongoose.Schema({
     patientID:{
-        type:mongoose.Schema.Types.ObjectID,
-        ref:'Exam',
-        required:true
+        type:String,
+        required:true,
+        unique:true
         
     },
     age:{

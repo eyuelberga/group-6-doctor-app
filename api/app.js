@@ -4,26 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
-
 const examsRouter = require('./models/exam');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
-
-const db = require('./db');
-//db connection prior to server start
-(async()=>{
-  try{
-    await db.connect();
-    app.listen(27017,() =>{
-      console.log('Server listening on port 9000');
-    });
-  }catch{
-    console.log('Error establishing connection to MongoDB database.');
-  }
-})();
-
-
+const connectDB = require('./db');//importing mongodb atlas connecter
+const port =5000;
 var app = express();
 
 app.use(logger('dev'));
@@ -54,10 +39,11 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+connectDB();//connects to techdive database
 
-   
 
-  
-
+app.listen(port,()=>{
+    console.log(`****Server is running on port: ${port}`);
+});
 
 module.exports = app;
