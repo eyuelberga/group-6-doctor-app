@@ -1,10 +1,18 @@
+const dotenv =require("dotenv");
+dotenv.config();
 const mongo =require("mongoose");
-const db= "mongodb+srv://kgonz:<password>@techdive.u831ass.mongodb.net/?retryWrites=true&w=majority";
+
+const db= process.env.MONGODB_URL;
+
+if(!db){
+    console.error("Could not find mongodb url in environment. Please make sure to add 'MONGODB_URL' to your .env file.");
+    process.exit(1);
+}
 
 const connectDB=async() =>{
     try{
         await mongo.connect(db);
-        console.log("****Succesfully connected to MongoDB database!");
+        console.log("****Successfully connected to MongoDB database!");
         
     }
     catch(err){

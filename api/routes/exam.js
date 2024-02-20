@@ -5,6 +5,11 @@ const router = express.Router();
 //exam model
 const ExamSchema=require("../models/examModel");
 
+
+const ExamController = require('../controllers/exam-controller');
+
+router.get('/:examId', ExamController.examDetail);
+
 //create new exam
 router.route("/").post(async (req,res,next) =>
 {
@@ -15,8 +20,8 @@ router.route("/").post(async (req,res,next) =>
         {
             res.json
             ({
-                data: result,
-                message: "Exam succesfully created!",
+                exam: result,
+                message: "Exam successfully created!",
                 status:200,
             });
         })

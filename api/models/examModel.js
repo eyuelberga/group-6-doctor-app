@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
 const examSchema = new mongoose.Schema({
-    examID:{
+    examId:{
         type:String,
         required: true,
         unique:true
     },
-    patientID:{
+    patientId:{
         type:String,
         required: true,
         unique:true
@@ -14,7 +14,7 @@ const examSchema = new mongoose.Schema({
     },
     date:{
         type:Date,
-        required:true,
+        required:false,
         unique:false
     },
     keyFindings:{
@@ -22,18 +22,40 @@ const examSchema = new mongoose.Schema({
         required:true,
         unique:false
     },
-    brixiaScore:{
-        type: Array,
+    brixiaScores:{
+        type: String,
         required:true,
         unique:false
     },
     imageURL:{
         type:String,
         required:true,
-        unique:true,
-    }
-   
+        unique:false,
+    },
+    age:{
+        type:Number,
+        required: true,
+        unique:false
 
+    },
+    sex:{
+        type:String,
+        required:true,
+        unique:false
+
+    },
+    bmi:{
+        type:Number,
+        required:true,
+        unique:false
+
+    },
+    zipCode:{
+        type:String,
+        required:false,
+        unique:false
+
+    }
 
 });
 module.exports=mongoose.model('Exam',examSchema);
