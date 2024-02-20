@@ -5,6 +5,9 @@ const cors = require('cors');
 const port =5000;
 const connectDB = require('./db');//importing mongodb atlas connecter
 const examModel = require("./models/examModel");
+const indexRouter=require('./routes/index');
+const usersRouter=require('./routes/users');
+
 
 const app =express()
 
@@ -20,7 +23,10 @@ app.use(
         extended:true,
     }),
 );
-app.use("/api/exams",examModel);
+app.use("/api/exams",examModel);//exam router
+app.use('/',indexRouter);
+app.use('/users',usersRouter);
+
 
 
 
