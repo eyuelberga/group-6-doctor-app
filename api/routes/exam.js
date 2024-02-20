@@ -1,14 +1,15 @@
-let mongoose = require("mongoose"),
-    express = require("express");
-    router = express.Router();
+const mongoose = require("mongoose");
+const express = require("express");
+const router = express.Router();
 
 //exam model
-const ExamSchema=require("./models/examModel");
+const ExamSchema=require("../models/examModel");
 
 //create new exam
-router.route("/api/exams").post(async (req,res,next) =>
+router.route("/").post(async (req,res,next) =>
 {
-    await ExamSchema
+    
+        await ExamSchema
         .create(req.body)
         .then((result) =>
         {
@@ -23,6 +24,6 @@ router.route("/api/exams").post(async (req,res,next) =>
         return next(err);
     });
 });
-           
-
     module.exports = router;
+
+

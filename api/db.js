@@ -1,5 +1,5 @@
 const mongo =require("mongoose");
-const db= "mongodb+srv://kgonz:parfaitcup3@techdive.u831ass.mongodb.net/?retryWrites=true&w=majority";
+const db= "mongodb+srv://kgonz:<password>@techdive.u831ass.mongodb.net/?retryWrites=true&w=majority";
 
 const connectDB=async() =>{
     try{

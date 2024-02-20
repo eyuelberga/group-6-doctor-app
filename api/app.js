@@ -4,7 +4,7 @@ const mongoose=require("mongoose");
 const cors = require('cors');
 const port =5000;
 const connectDB = require('./db');//importing mongodb atlas connecter
-const examModel = require("./models/examModel");
+const examRouter=require('./routes/exam');
 const indexRouter=require('./routes/index');
 const usersRouter=require('./routes/users');
 
@@ -23,7 +23,7 @@ app.use(
         extended:true,
     }),
 );
-app.use("/api/exams",examModel);//exam router
+app.use("/api/exams",examRouter);//exam router
 app.use('/',indexRouter);
 app.use('/users',usersRouter);
 
