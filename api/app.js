@@ -7,6 +7,7 @@ const connectDB = require('./db');//importing mongodb atlas connecter
 const examModel = require("./models/examModel");
 const indexRouter=require('./routes/index');
 const usersRouter=require('./routes/users');
+const examsRouter = require('./routes/exams');
 
 
 const app =express()
@@ -26,7 +27,7 @@ app.use(
 app.use("/api/exams",examModel);//exam router
 app.use('/',indexRouter);
 app.use('/users',usersRouter);
-
+// app.use('/api/exams', examsRouter); TODO resolve this dir conflict
 
 
 
