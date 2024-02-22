@@ -1,0 +1,182 @@
+[
+    {
+      "Patient ID": 1001,
+      "Image": "https://picsum.photos/200",
+      "Key Findings": "Elevated cholesterol levels, mild hypertension",
+      "Brixia Score": 3.2,
+      "Age": 45,
+      "Sex": "Male",
+      "BMI": 27.5,
+      "Zip Code": 12345
+    },
+    {
+      "Patient ID": 1002,
+      "Image": "https://picsum.photos/200",
+      "Key Findings": "Type 2 diabetes, overweight",
+      "Brixia Score": 2.8,
+      "Age": 55,
+      "Sex": "Female",
+      "BMI": 30.1,
+      "Zip Code": 23456
+    },
+    {
+      "Patient ID": 1003,
+      "Image": "https://picsum.photos/200",
+      "Key Findings": "Respiratory infection, normal blood pressure",
+      "Brixia Score": 1.5,
+      "Age": 35,
+      "Sex": "Male",
+      "BMI": 22.3,
+      "Zip Code": 34567
+    },
+    {
+      "Patient ID": 1004,
+      "Image": "https://picsum.photos/200",
+      "Key Findings": "Fractured wrist, low vitamin D levels",
+      "Brixia Score": 1.9,
+      "Age": 28,
+      "Sex": "Female",
+      "BMI": 23.8,
+      "Zip Code": 45678
+    },
+    {
+      "Patient ID": 1005,
+      "Image": "https://picsum.photos/200",
+      "Key Findings": "Seasonal allergies, no other significant issues",
+      "Brixia Score": 1.1,
+      "Age": 42,
+      "Sex": "Male",
+      "BMI": 25.0,
+      "Zip Code": 56789
+    },
+    {
+      "Patient ID": 1006,
+      "Image": "https://picsum.photos/200",
+      "Key Findings": "Hypothyroidism, normal blood pressure",
+      "Brixia Score": 2.5,
+      "Age": 50,
+      "Sex": "Female",
+      "BMI": 29.6,
+      "Zip Code": 67890
+    },
+    {
+      "Patient ID": 1007,
+      "Image": "https://picsum.photos/200",
+      "Key Findings": "Gastric ulcer, history of smoking",
+      "Brixia Score": 3.8,
+      "Age": 60,
+      "Sex": "Male",
+      "BMI": 28.3,
+      "Zip Code": 78901
+    },
+    {
+      "Patient ID": 1008,
+      "Image": "https://picsum.photos/200",
+      "Key Findings": "Anxiety disorder, borderline high cholesterol",
+      "Brixia Score": 2.3,
+      "Age": 32,
+      "Sex": "Female",
+      "BMI": 26.7,
+      "Zip Code": 89012
+    },
+    {
+      "Patient ID": 1009,
+      "Image": "https://picsum.photos/200",
+      "Key Findings": "Osteoarthritis, overweight",
+      "Brixia Score": 4.5,
+      "Age": 68,
+      "Sex": "Male",
+      "BMI": 31.5,
+      "Zip Code": 90123
+    },
+    {
+      "Patient ID": 1011,
+      "Image": "https://picsum.photos/200",
+      "Key Findings": "Hypertension, elevated LDL cholesterol",
+      "Brixia Score": 3.6,
+      "Age": 55,
+      "Sex": "Male",
+      "BMI": 29.9,
+      "Zip Code": 98765
+    },
+    {
+      "Patient ID": 1012,
+      "Image": "https://picsum.photos/200",
+      "Key Findings": "Migraine headaches, history of depression",
+      "Brixia Score": 2.2,
+      "Age": 40,
+      "Sex": "Female",
+      "BMI": 27.2,
+      "Zip Code": 87654
+    },
+    {
+      "Patient ID": 1013,
+      "Image": "https://picsum.photos/200",
+      "Key Findings": "Gastroesophageal reflux disease (GERD), overweight",
+      "Brixia Score": 3.1,
+      "Age": 48,
+      "Sex": "Male",
+      "BMI": 28.8,
+      "Zip Code": 76543
+    },
+    {
+      "Patient ID": 1014,
+      "Image": "https://picsum.photos/200",
+      "Key Findings": "Vitamin B12 deficiency, vegetarian diet",
+      "Brixia Score": 1.7,
+      "Age": 30,
+      "Sex": "Female",
+      "BMI": 23.0,
+      "Zip Code": 65432
+    },
+    {
+      "Patient ID": 1015,
+      "Image": "https://picsum.photos/200",
+      "Key Findings": "Rheumatoid arthritis, elevated ESR levels",
+      "Brixia Score": 4.0,
+      "Age": 58,
+      "Sex": "Male",
+      "BMI": 30.3,
+      "Zip Code": 54321
+    },
+    {
+      "Patient ID": 1016,
+      "Image": "https://picsum.photos/200",
+      "Key Findings": "Seasonal flu, no other significant issues",
+      "Brixia Score": 1.0,
+      "Age": 22,
+      "Sex": "Female",
+      "BMI": 21.8,
+      "Zip Code": 43210
+    },
+    {
+      "Patient ID": 1017,
+      "Image": "https://picsum.photos/200",
+      "Key Findings": "Coronary artery disease, history of smoking",
+      "Brixia Score": 4.8,
+      "Age": 70,
+      "Sex": "Male",
+      "BMI": 32.1,
+      "Zip Code": 32109
+    },
+    {
+      "Patient ID": 1018,
+      "Image": "https://picsum.photos/200",
+      "Key Findings": "Fibromyalgia, history of anxiety disorder",
+      "Brixia Score": 3.4,
+      "Age": 52,
+      "Sex": "Female",
+      "BMI": 28.5,
+      "Zip Code": 21098
+    },
+    {
+      "Patient ID": 1019,
+      "Image": "https://picsum.photos/200",
+      "Key Findings": "Chronic obstructive pulmonary disease (COPD), former smoker",
+      "Brixia Score": 4.2,
+      "Age": 62,
+      "Sex": "Male",
+      "BMI": 31.2,
+      "Zip Code": 10987
+    }
+]  
