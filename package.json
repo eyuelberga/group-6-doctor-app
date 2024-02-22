@@ -1,5 +1,7 @@
 {
-  "dependencies": {
-    "react-router-dom": "^6.22.1"
+  "scripts": {
+    "install": "cd client && yarn && cd ../api && yarn",
+    "build": "cd client && export REACT_APP_API_BASE_URL=/api && yarn build && mv build _public && mv -f _public ../api && cd ../api && rm -rf public && mv _public public",
+    "start": "yarn build && cd api && yarn start"
   }
 }

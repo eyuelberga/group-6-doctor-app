@@ -23,14 +23,14 @@ const Table = ({ data, handleDelete}) => {
            
             
             <tr key={index}>
-              {
+              {/* {
                 if (condition) {
                   
                 }
                  exam[1]._id !== null && console.log(exam[1]._id)
               
                 
-              }
+              } */}
         
               <td>{exam._id}</td>
               <td>{exam.patientId}</td>
