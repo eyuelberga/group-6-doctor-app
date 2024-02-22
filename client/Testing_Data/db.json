@@ -1,0 +1,7 @@
+{
+    "exams":[
+        {"_id":"61e83d679dc59e6e8e11a1cf","patientId":"Sssdccaaaa","age":-85,"sex":"F","zipCode":"720","bmi":27.46,"__v":0,"examId":"Exam-1cczzxc","keyFindings":" patchy increased opacity in the lower lobes bilaterally, more pronounced on the lateral view.  Small pleural effusions","brixiaScores":"1,2,3,4","imageURL":"Fzxcxscdzcxhttps://ohif-hack-diversity-covid.s3.amazonaws.com/covid-png/COVID-19-AR-16434350_XR_CHEST_AP_PORTABLE_1.png"},
+        {"_id":"61e83d679dc59e6e8e11a1c1","patientId":"x888888","age":42,"sex":"m","zipCode":"72100","bmi":22,"__v":0,"examId":"Exam-4","keyFindings":"Right basilar atelectasis","brixiaScores":"1,2,3,4","imageURL":"https://ohif-hack-diversity-covid.s3.amazonaws.com/covid-png/COVID-19-AR-16434381_XR_CHEST_AP_PORTABLE_2.png"},
+        {"_id":"61e83d679dc59e6e8e11a1d0","patientId":"COVID-19-AR-16406502","age":88,"sex":"F","zipCode":"721","bmi":34.9,"__v":0,"examId":"Exam-1","keyFindings":"Indeterminate 2 cm left upper nodule, felt to represent a calcified  granuloma.","brixiaScores":"1,2,3,4","imageURL":"https://ohif-hack-diversity-covid.s3.amazonaws.com/covid-png/COVID-19-AR-16406502_XR_CHEST_PA_AND_LATERAL_4.png"}
+    ]
+}
