@@ -1,9 +1,11 @@
 import './App.css';
+
 import Navbar from './Navbar';
 import Table from './Table'; 
 // import Admin from './Admin';
 // import { Routes, Route } from 'react-router-dom';
-
+import fakeData from "./MOCK_DATA.json";
+import { useTable } from "react-table";
 
 import { useApi } from './hooks/use-api';
 

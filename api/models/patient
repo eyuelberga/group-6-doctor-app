@@ -1,0 +1,35 @@
+const mongoose = require('mongoose');
+
+const patientSchema = new mongoose.Schema({
+    patientID:{
+        type:String,
+        required:true,
+        unique:true
+        
+    },
+    age:{
+        type:Number,
+        required: true,
+        unique:false
+
+    },
+    sex:{
+        type:String,
+        required:true,
+        unique:false
+
+    },
+    BMI:{
+        type:Number,
+        required:true,
+        unique:false
+
+    },
+    zipcode:{
+        type:number,
+        required:true,
+        unique:false
+
+    }
+});
+module.exports=mongoose.model('patient',patientSchema);
