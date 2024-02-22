@@ -1,4 +1,5 @@
-const Table = ({ data }) => {
+// Functions as props
+const Table = ({ data, handleDelete}) => {
     return (
       <table>
         <thead>
@@ -15,17 +16,36 @@ const Table = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((row, index) => (
+          { data.map((exam, index) => (
+
+          // need to check that exam is non null
+          // Need to restructure jsx not working
+           
+            
             <tr key={index}>
-              <td>{row.patient_id}</td>
-              <td>{row.exam_id}</td>
-              <td><img src={row.image} alt="failed to load" /></td>
-              <td>{row.findings}</td>
-              <td>{row.brixia_score}</td>
-              <td>{row.age}</td>
-              <td>{row.sex}</td>
-              <td>{row.BMI}</td>
-              <td>{row.zip}</td>
+              {
+                if (condition) {
+                  
+                }
+                 exam[1]._id !== null && console.log(exam[1]._id)
+              
+                
+              }
+        
+              <td>{exam._id}</td>
+              <td>{exam.patientId}</td>
+              <td>{exam.examId}</td>
+              <td><img src={exam.imageURL} alt="failed to load" /></td>
+              <td>{exam.keyFindings}</td>
+              <td>{exam.brixiaScores}</td>
+              <td>{exam.age}</td>
+              <td>{exam.sex}</td>
+              <td>{exam.bmi}</td>
+              <td>{exam.zipCode}</td>
+              {/* TODO: Implement Update functionality */}
+              <td><button> Update </button></td>
+              <td><button onClick={() => handleDelete(exam._id)}> Delete </button></td>
+
 
             </tr>
           ))}
