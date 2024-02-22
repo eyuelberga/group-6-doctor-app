@@ -1,4 +1,6 @@
 import './App.css';
+import fakeData from "./MOCK_DATA.json";
+import { useTable } from "react-table";
 
 import { useApi } from './hooks/use-api';
 
