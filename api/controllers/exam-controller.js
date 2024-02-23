@@ -27,9 +27,30 @@ const deleteExam = async (req, res) => {
   });
 };
 
+const updateExam = async (req, res) => {
+  let exams = await ExamSchema.find({ examId: req.params.examId })
+  if (exams.length < 1) return res.status(404).json({ success: false, message: "Exam not found!" });
+
+  await ExamSchema
+  .findOneAndUpdate({examId: req.params.examId},req.body)
+  .then((result) =>
+  {
+      res.json
+      ({
+          exam: result,
+          message: "Exam successfully updated!",
+          status:200,
+      });
+  })
+.catch((err) => {
+  return next(err);
+});
+};
+
 module.exports = {
   examDetail,
   allExams,
-  deleteExam
-  
+  deleteExam,
+  updateExam
+
 };
