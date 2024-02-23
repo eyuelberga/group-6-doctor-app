@@ -13,8 +13,8 @@ const usersRouter = require('./routes/users');
 const app = express()
 
 
-
-connectDB();//connects to techdive database
+//connects to techdive database
+connectDB();
 
 app.use(cors());
 app.use(express.json());
