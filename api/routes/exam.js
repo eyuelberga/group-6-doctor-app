@@ -10,6 +10,12 @@ const ExamController = require('../controllers/exam-controller');
 
 router.get('/:examId', ExamController.examDetail);
 
+router.get('/', ExamController.allExams);
+
+router.delete('/:examId', ExamController.deleteExam);
+
+router.put('/:examId', ExamController.updateExam);
+
 //create new exam
 router.route("/").post(async (req,res,next) =>
 {
