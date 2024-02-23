@@ -8,6 +8,17 @@ const examDetail = async (req, res) => {
   });
 };
 
+const allExams = async (req, res) => {
+  const exams = await ExamSchema.find()
+  return res.status(200).json({
+    success: true,
+    exams
+  });
+};
+
+
+
 module.exports = {
   examDetail,
+  allExams
 };
