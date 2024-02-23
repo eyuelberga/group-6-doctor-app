@@ -12,6 +12,8 @@ router.get('/:examId', ExamController.examDetail);
 
 router.get('/', ExamController.allExams);
 
+router.delete('/:examId', ExamController.deleteExam);
+
 //create new exam
 router.route("/").post(async (req,res,next) =>
 {
