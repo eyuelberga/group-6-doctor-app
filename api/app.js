@@ -6,6 +6,7 @@ const cors = require('cors');
 const port = 5000;
 const connectDB = require('./db');//importing mongodb atlas connecter
 const examRouter = require('./routes/exam');
+const patientRouter = require('./routes/patient');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
@@ -25,6 +26,7 @@ app.use(
     }),
 );
 app.use("/api/exams", examRouter);//exam router
+app.use("/api/patient", patientRouter);
 app.use('/users', usersRouter);
 
 app.use((err, req, res, next) => {
