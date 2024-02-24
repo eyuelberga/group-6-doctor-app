@@ -6,6 +6,23 @@ import { useLocation } from 'react-router-dom'; // Import from React Router
 
 
 const JsonTable = ({ jsonData }) => {
+
+  const handleDelete = async (exam_id) => {
+    console.log("delete pressed")
+    console.log(exam_id)
+
+    if(window.confirm("Are you sure you want to delete this exam?")){
+      // Call API to delete exam
+      await fetch(`https://fmda-api.vercel.app/api/exams/${exam_id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+      window.location.reload()
+    }
+
+  }
   // Keep track of the page we are on
   const [currentPage, setCurrentPage] = useState('admin');
   const location = useLocation();
@@ -82,10 +99,16 @@ const JsonTable = ({ jsonData }) => {
               {currentPage === 'admin' && (
                 <>
                   <td>
-                    <button>Update</button>
+                    {/* <a href= { row.cells[1]}> {console.log(row.cells[1].value)}</a>
+                                        <a href= { row.cells[1]}> {console.log(row.cells[1].value)}</a> */}
+                    
+                    {/* <a href={`/exam/${rows.cells[1].value}/update`}> Update</a> */}
+                    {row && row.cells && row.cells.length >0 && <a href={`/exam/${row.cells[1].value}/update`}> Update</a>}
+
                   </td>
                   <td>
-                    <button>Delete</button>
+                  {row && row.cells && row.cells.length >0 && <button onClick={()=>{handleDelete(row.cells[1].value)}}>Delete</button>}
+                    {/* <button onClick={()=>{handleDelete(rows.cells[1].value)}}>Delete</button> */}
                   </td>
                 </>
               )}

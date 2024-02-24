@@ -36,6 +36,7 @@ const  Navbar = () => {
             <Route path="Exam" element={<ExamViewer match={sampleExam}/>} />
             <Route path="/admin" element={<Admin/>} />
 
+
         </Routes>
 
         </div>

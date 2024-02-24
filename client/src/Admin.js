@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 // import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
-
-
 const Admin = () => {
   const [jsonData, setJsonData] = useState(null)
 
