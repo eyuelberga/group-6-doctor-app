@@ -1,11 +1,16 @@
-import React from 'react';
-import JsonTable from './JsonTable';
+import './App.css';
 import { useEffect, useState } from "react";
-// import { Link, Route } from 'react-router-dom';
-// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import JsonTable from './JsonTable';
 
+// import Admin from './Admin';
+// import { Routes, Route } from 'react-router-dom';
 
-const Admin = () => {
+// https://czi-covid-lypkrzry4q-uc.a.run.app/api/exams (SUPPLIED DATA)
+
+import { useApi } from './hooks/use-api';
+
+function Exams() {
+  const { response } = useApi();
   const [jsonData, setJsonData] = useState(null)
 
 
@@ -33,10 +38,15 @@ const Admin = () => {
   }, []); 
 
   return (
-    <div>
+    <div className="App">
+      {/* <header className="App-header"> */}
+      {/* </header> */}
+      
       <JsonTable jsonData={jsonData} />
+      
+     
     </div>
   );
-};
+}
 
-export default Admin;
+export default Exams;

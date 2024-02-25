@@ -28,7 +28,7 @@ function App() {
           {response}
       </p>
       <div className="data">
-        <Table data={data} />
+        {/* <Table data={data} /> */}
       </div>
       {/* <Routes>
         <Route path = '/Admin' element = {<Admin/>}/>
