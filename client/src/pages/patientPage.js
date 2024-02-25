@@ -8,9 +8,9 @@ import Navbar from '../components/Navbar'
 
 import { useApi } from './hooks/use-api';
 
-function patientPage() {
-    const data = react.useMemo(() => fakeData, []);
-    const columns = react.useMemo(() => [
+function PatientPage() {
+    const data = React.useMemo(() => fakeData, []);
+    const columns = React.useMemo(() => [
 
             {
                 Header: "Patient ID",
