@@ -29,13 +29,6 @@ const Table = ({ data, handleDelete}) => {
           // Need to restructure jsx not working
             // { exam = Object.entries(exam[1])}
             <tr key={index}>
-              {
-                exam = Object.entries(exam[1])
-              }
-              {
-                // console.log(exam[1][1])
-              }
-              
         
               {/* <td>{exam[1][1]}</td> */}
               {/* <td>{exam.patientId}</td>
