@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTable } from 'react-table';
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom'; // Import from React Router
+import { Link, Route, Routes, useLocation, useParams } from 'react-router-dom'; // Import from React Router
 
 
 
@@ -80,6 +80,7 @@ const JsonTable = ({ jsonData }) => {
         {rows.map(row => {
           prepareRow(row);
           return (
+      
             <tr {...row.getRowProps()}>
               {row.cells.map(cell => (
                 <td {...cell.getCellProps()} style={{ border: '1px solid #ddd', padding: '8px' }}>
@@ -90,10 +91,19 @@ const JsonTable = ({ jsonData }) => {
                       alt={`Image for ${row.original.name}`}
                       style={{ maxWidth: '50px', maxHeight: '50px' }}
                     />
+                  ) : 
+                  cell.column.id === 'examId' ? (
+                    (row && row.cells && row.cells.length > 0) && (
+                      // <a href={`/exam/${cell.value}`}>{cell.value}</a>
+                      <Link to = {`/exam/${cell.value}`}> {cell.value}</Link>
+                      // <Link to = {`/Exam`}> {cell.value}</Link>
+
+                    
+                    )
                   ) : (
                     cell.render('Cell')
-                  )}
-                  {/* Add update and delete buttons to the last two columns */}
+                  )
+                }
                 </td>
               ))}
               {currentPage === 'admin' && (
@@ -123,6 +133,7 @@ const JsonTable = ({ jsonData }) => {
         })}
       </tbody>
     </table>
+    
   );
 };
 
