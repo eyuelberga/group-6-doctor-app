@@ -2,6 +2,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import Admin from "./Admin";
 import Exams from "./Exams";
 import ExamViewer from "./ExamViewer";
+import ExamViewer2 from "./ExamViewer2";
 import UpdateExam from "./pages/updateExam";
 
 const Navbar = () => {
@@ -37,7 +38,7 @@ const Navbar = () => {
                 <Route path="Exam" element={<ExamViewer match={sampleExam} />} />
                 <Route path="/admin" element={<Admin />} />
                 <Route exact path="/exam/:examId/update" element={<UpdateExam />} />
-
+                <Route path="/exam/:examId" element={<ExamViewer/>
             </Routes>
 
         </div>
