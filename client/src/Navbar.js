@@ -4,6 +4,7 @@ import Exams from "./Exams";
 import ExamViewer from "./ExamViewer";
 import ExamViewer2 from "./ExamViewer2";
 import UpdateExam from "./pages/updateExam";
+import CreateExam from "./pages/CreateExam";
 // import PatientPage from "./pages/patientPage";
 
 const  Navbar = () => {
@@ -41,6 +42,7 @@ const  Navbar = () => {
             {/* <Route path="/exam/:examId" element={<ExamViewer/>} /> */}
             <Route path="/exam/:examId" element={<ExamViewer/>} />
             <Route path="/exam/:examId/update" element={<UpdateExam/>} />
+            <Route path="/exams/create" element={<CreateExam/>} />
             {/* <Route path="/patient/patiendId:" element={<PatientPage/>} /> */}
 
 

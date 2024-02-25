@@ -2,10 +2,28 @@ import React, { useEffect, useState } from "react";
 
 function createExam() {
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
+        const body = {
+
+        }
         e.preventDefault();
-        console.log(e)
+        const formData = new FormData(e.target);
+        for(let [name, value] of formData) {
+        // console.log(`${name} = ${value}`);
+        body[name]=value; 
+        }
+        console.log(body);
+
+        await fetch(`https://fmda-api.vercel.app/api/exams`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body:JSON.stringify(body)
+          })
+          window.location.replace("/admin")
     }
+    
 
     return <div class="container">
 
