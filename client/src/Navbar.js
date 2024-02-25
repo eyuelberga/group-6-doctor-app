@@ -2,6 +2,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import Admin from "./Admin";
 import Exams from "./Exams";
 import ExamViewer from "./ExamViewer";
+import ExamViewer2 from "./ExamViewer2";
 
 const  Navbar = () => {
     const sampleExam = {
@@ -33,8 +34,10 @@ const  Navbar = () => {
         <Routes>
             {/* Routes to Components */}
             <Route path="/exams" element={<Exams/>} />
-            <Route path="Exam" element={<ExamViewer match={sampleExam}/>} />
+            {/* <Route path="Exam" element={<ExamViewer match={sampleExam}/>} /> */}
             <Route path="/admin" element={<Admin/>} />
+            {/* <Route path="/exam/:examId" element={<ExamViewer/>} /> */}
+            <Route path="/exam/:examId" element={<ExamViewer/>} />
 
 
         </Routes>
