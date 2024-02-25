@@ -1,43 +1,63 @@
-import './App.css';
-import fakeData from "./MOCK_DATA.json";
-import { useState } from "react";
-import Navbar from '../components/Navbar'
-
-import { useApi } from './hooks/use-api';
+import React, { useEffect, useState } from "react";
 
 function createExam() {
-    const [createExam, setExamList] = useState([]);
-    const [newExam, setNewExam] = useState("");
 
-    const handleChange = (event) => {
-        setNewExam(event.target.value);
-    };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(e)
+    }
 
-    
+    return <div class="container">
 
-    returh (
-        <div className='CreateExam'>
-            <button>Cancel</button>
-            <div className='addExam'>
-                <button>addExam</button>
-                <button>Cancel</button>
+       <form class="row" onSubmit={handleSubmit}>
+            <div class="col-md-6 col-12">
+                <h4>Patient Info</h4>
+                <div class="form-group mb-3">
+                    <label for="patientId">Patient ID</label>
+                    <input required type="text" name="patientId" class="form-control" placeholder="Patient Id"></input>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="age">Age</label>
+                    <input required type="number" name="age" class="form-control" placeholder="Age"></input>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="sex">Sex</label>
+                    <input required type="text" name="sex" class="form-control" placeholder="Sex"></input>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="bmi">BMI</label>
+                    <input required type="text" name="bmi" class="form-control" placeholder="BMI"></input>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="bmi">Zip Code</label>
+                    <input required type="text" name="zipCode" class="form-control" placeholder="Zip Code"></input>
+                </div>
             </div>
-            <div className='patientInfo'>
-                <input onChange={handleChange} type="text" />
-                <input onChange={handleChange} type="text" />
-                <input onChange={handleChange} type="text" />
-                <input onChange={handleChange} type="text" />
-                <input onChange={handleChange} type="text" />
+            <div class="col-md-6 col-12">
+                <h4>Exam Info</h4>
+                <div class="form-group mb-3">
+                    <label for="examId">Exam ID</label>
+                    <input required type="text" name="examId" class="form-control" placeholder="Exam ID"></input>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="imageUrl">Image URL</label>
+                    <input required type="text" name="imageURL" class="form-control" placeholder="Image URL"></input>
+                </div>
+                <div class="mb-3">
+                    <label for="keyFindings" class="form-label">Key Findings</label>
+                    <textarea required name="keyFindings" class="form-control" rows="3" placeholder="Key Findings"></textarea>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="brixiaScores">Brixia Scores</label>
+                    <input required type="text" name="brixiaScores" class="form-control" placeholder="Brixia Scores"></input>
+                </div>
             </div>
-            <div className='examInfo'>
-                <input onChange={handleChange} type="text" />
-                <input onChange={handleChange} type="text" />
-                <input onChange={handleChange} type="text" />
-                <input onChange={handleChange} type="text" />
-                <input onChange={handleChange} type="text" />
-            </div>
-        </div>
-    );
+            <button class="btn btn-primary" type="submit">Create</button>
+        </form>
+    </div>
 }
 
-export default CreateExam;
+export default createExam;

@@ -100,9 +100,19 @@ const JsonTable = ({ jsonData }) => {
 
                     
                     )
-                  ) : (
+                  ) : 
+                  cell.column.id === 'patientId' ? (
+                    (row && row.cells && row.cells.length > 0) && (
+                      // <a href={`/exam/${cell.value}`}>{cell.value}</a>
+                      <Link to = {`/patient/${cell.value}`}> {cell.value}</Link>
+                    ) 
+                  ) :
+                  
+                  
+                  (
                     cell.render('Cell')
                   )
+                  
                 }
                 </td>
               ))}

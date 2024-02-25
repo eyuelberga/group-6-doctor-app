@@ -3,6 +3,8 @@ import Admin from "./Admin";
 import Exams from "./Exams";
 import ExamViewer from "./ExamViewer";
 import ExamViewer2 from "./ExamViewer2";
+import UpdateExam from "./pages/updateExam";
+// import PatientPage from "./pages/patientPage";
 
 const  Navbar = () => {
     const sampleExam = {
@@ -38,8 +40,8 @@ const  Navbar = () => {
             <Route path="/admin" element={<Admin/>} />
             {/* <Route path="/exam/:examId" element={<ExamViewer/>} /> */}
             <Route path="/exam/:examId" element={<ExamViewer/>} />
-            {/* <Route path="/exam/:examId/update" element={<UpdateExam/>} /> */}
-
+            <Route path="/exam/:examId/update" element={<UpdateExam/>} />
+            {/* <Route path="/patient/patiendId:" element={<PatientPage/>} /> */}
 
 
         </Routes>
