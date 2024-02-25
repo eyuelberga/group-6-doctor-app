@@ -1,14 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import 'bootstrap/dist/css/bootstrap.css';
+// TODO: Change Router Name to App 
+import Router from './Router';
+import { BrowserRouter} from 'react-router-dom';
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+
+import reportWebVitals from './reportWebVitals';
+// import 'bootstrap/dist/css/bootstrap.css';
+
+// import {
+//   createBrowserRouter,
+//   RouterProvider,
+// } from "react-router-dom";
 
 const router = createBrowserRouter
 ([
@@ -28,10 +32,9 @@ const router = createBrowserRouter
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    {/* <RouterProvider router={router} /> */}
-    <App />
-  </React.StrictMode>
+  <BrowserRouter>
+    <Router/>
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -11,3 +11,57 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Navbar Styles */
+.navbar {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+/* change color later */
+.navbar h1 {
+  color: black;
+}
+.navbar .links {
+  margin-left: auto;
+}
+.navbar a {
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 6px;
+  color: gray;
+}
+.navbar a:hover {
+  color: black;
+}
+/* Add Button Styling */
+/* .navbar button{
+
+} */
+/* Data Table Styles */
+
+.data {
+  margin: auto; /* This centers the element horizontally */
+  width: 80%; /* Adjust the width according to your design */
+}
+
+.data img{
+  height: 70px;
+  width: 70px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px; /* Add some top margin for better spacing */
+}
+
+th, td {
+  border-bottom: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
