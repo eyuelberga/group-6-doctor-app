@@ -4,23 +4,35 @@ import Exams from "./Exams";
 import ExamViewer from "./ExamViewer";
 import ExamViewer2 from "./ExamViewer2";
 import UpdateExam from "./pages/updateExam";
-import CreateExam from "./pages/CreateExam";
+import CreateExam from "./pages/createExam";
 // import PatientPage from "./pages/patientPage";
+import { useState, useEffect } from 'react';
+import {useLocation, useParams } from 'react-router-dom'; // Import from React Router
 
 const  Navbar = () => {
-    const sampleExam = {
-        "_id": "61e83d679dc59e6e8e11a1c1",
-        "patientId": "x888888",
-        "age": 42,
-        "sex": "m",
-        "zipCode": "72100",
-        "bmi": 22,
-        "__v": 0,
-        "examId": "Exam-4",
-        "keyFindings": "Right basilar atelectasis",
-        "brixiaScores": "1,2,3,4",
-        "imageURL": "https://ohif-hack-diversity-covid.s3.amazonaws.com/covid-png/COVID-19-AR-16434381_XR_CHEST_AP_PORTABLE_2.png"
-       }
+
+    const [currentPage, setCurrentPage] = useState('exams');
+    const location = useLocation();
+
+    // Ensure create exam is only showed when making an exam
+    useEffect(() => {
+        // Extract the current route from the location object
+        const currentRoute = location.pathname;
+        const pathSegments = location.pathname.split('/'); // Split the pathname into segments
+        const lastSegment = pathSegments[pathSegments.length - 1]; // Get the last segment
+        console.log(currentPage);
+        // Update the currentPage state based on your logic
+        if (currentRoute === '/exams') {
+          setCurrentPage('exams');
+        } else if (currentRoute === '/admin') {
+          setCurrentPage('admin');
+        } else if(currentRoute == "/update"){
+            setCurrentPage('update');
+        }
+        // console.log(currentPage);
+        
+    
+      }, [location.pathname]);
 
     return (  
         // Navbar
@@ -30,8 +42,15 @@ const  Navbar = () => {
         <div className="links">
             {/* Links to Pages  */}
             <Link to= '/exams'> Exams </Link>
-            <Link to= '/Exam' > Single Exam</Link>
             <Link to= '/admin'> Admin </Link>
+            { (currentPage == 'admin' || currentPage === 'update') && (
+                <>
+                    <Link to= '/exams/create' > Create Exam</Link>
+                </>
+            )
+
+            }
+
         </div>
         </nav>
         <Routes>
