@@ -4,6 +4,7 @@ import './index.css';
 import './App.css';
 import fakeData from "./MOCK_DATA.json";
 import { useTable } from "react-table";
+import Navbar from '../components/Navbar'
 
 import { useApi } from './hooks/use-api';
 
@@ -57,7 +58,7 @@ function patientPage() {
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns,data });
 
     return (
-        <div className="patientPage">
+        <div className="PatientPage">
             <div>
                 <table {...getTableProps()}>
                     <thead>
@@ -91,4 +92,4 @@ function patientPage() {
     );
 }
 
-export default patientPage;
+export default PatientPage;

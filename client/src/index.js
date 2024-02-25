@@ -10,9 +10,26 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+const router = createBrowserRouter
+([
+  {
+    path: "/",
+    element: <div>App</div>,
+  },
+  {
+    path: "/",
+    element: <div>createExam</div>,
+  },
+  {
+    path: "/",
+    element: <div>patientPage</div>,
+  },
+]);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    {/* <RouterProvider router={router} /> */}
     <App />
   </React.StrictMode>
 );

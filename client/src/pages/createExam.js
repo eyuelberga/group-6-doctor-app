@@ -1,6 +1,7 @@
 import './App.css';
 import fakeData from "./MOCK_DATA.json";
 import { useState } from "react";
+import Navbar from '../components/Navbar'
 
 import { useApi } from './hooks/use-api';
 
@@ -15,7 +16,8 @@ function createExam() {
     
 
     returh (
-        <div className='createExam'>
+        <div className='CreateExam'>
+            <button>Cancel</button>
             <div className='addExam'>
                 <button>addExam</button>
                 <button>Cancel</button>
@@ -38,4 +40,4 @@ function createExam() {
     );
 }
 
-export default createExam;
+export default CreateExam;
