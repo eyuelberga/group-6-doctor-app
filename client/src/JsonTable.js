@@ -68,11 +68,22 @@ const JsonTable = ({ jsonData }) => {
       <thead>
         {headerGroups.map(headerGroup => (
           <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map(column => (
+            {headerGroup.headers.map(column => {
+          // Exclude columns with id 'examId' and 'patientId'
+          if (column.id !== '_id' && column.id !== '__v') {
+            return (
               <th {...column.getHeaderProps()} style={{ borderBottom: '2px solid #ddd', padding: '8px' }}>
                 {column.render('Header')}
               </th>
-            ))}
+            );
+          }
+          return null;
+        })}
+            {/* {headerGroup.headers.map(column => (
+              <th {...column.getHeaderProps()} style={{ borderBottom: '2px solid #ddd', padding: '8px' }}>
+                {column.render('Header')}
+              </th>
+            ))} */}
           </tr>
         ))}
       </thead>
@@ -82,40 +93,38 @@ const JsonTable = ({ jsonData }) => {
           return (
       
             <tr {...row.getRowProps()}>
-              {row.cells.map(cell => (
+              {row.cells.map(cell => {
+                 // Exclude cells with column id 'examId' and 'patientId'
+            if (cell.column.id !== '_id' && cell.column.id !== '__v') {
+              return (
                 <td {...cell.getCellProps()} style={{ border: '1px solid #ddd', padding: '8px' }}>
-                    {/* Check if the cell contains an image URL */}
+                  {/* Check if the cell contains an image URL */}
                   {cell.column.id === 'imageURL' ? (
-                    <img
-                      src={cell.value}
-                      alt={`Image for ${row.original.name}`}
-                      style={{ maxWidth: '50px', maxHeight: '50px' }}
-                    />
-                  ) : 
-                  cell.column.id === 'examId' ? (
                     (row && row.cells && row.cells.length > 0) && (
-                      // <a href={`/exam/${cell.value}`}>{cell.value}</a>
-                      <Link to = {`/exam/${cell.value}`}> {cell.value}</Link>
-                      // <Link to = {`/Exam`}> {cell.value}</Link>
-
-                    
+                      <img
+                        src={cell.value}
+                        alt={`Image for ${row.original.name}`}
+                        style={{ maxWidth: '50px', maxHeight: '50px' }}
+                      />
                     )
-                  ) : 
-                  cell.column.id === 'patientId' ? (
+                  ) : cell.column.id === 'examId' ? (
                     (row && row.cells && row.cells.length > 0) && (
-                      // <a href={`/exam/${cell.value}`}>{cell.value}</a>
-                      <Link to = {`/patient/${cell.value}`}> {cell.value}</Link>
-                    ) 
-                  ) :
-                  
-                  
-                  (
+                      <Link to={`/exam/${cell.value}`}>{cell.value}</Link>
+                    )
+                  ) : cell.column.id === 'patientId' ? (
+                    (row && row.cells && row.cells.length > 0) && (
+                      <Link to={`/patient/${cell.value}`}>{cell.value}</Link>
+                    )
+                  ) : (
                     cell.render('Cell')
-                  )
-                  
-                }
+                  )}
                 </td>
-              ))}
+              );
+            }
+            return null;
+              })}
+               
+        
               {currentPage === 'admin' && (
                 <>
                   <td>
@@ -123,7 +132,7 @@ const JsonTable = ({ jsonData }) => {
                                         <a href= { row.cells[1]}> {console.log(row.cells[1].value)}</a> */}
                     
                     {/* <a href={`/exam/${rows.cells[1].value}/update`}> Update</a> */}
-                    {row && row.cells && row.cells.length >0 && <a href={`/exam/${row.cells[1].value}/update`}> Update</a>}
+                    {row && row.cells && row.cells.length >0 && <Link to={`/exam/${row.cells[1].value}/update`}> Update</Link>}
 
                   </td>
                   <td>
