@@ -4,9 +4,31 @@ import { useParams } from "react-router-dom";
 
 function UpdateExam() {
     const { examId } = useParams();
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
+        const body = {
+
+        }
         e.preventDefault();
-        console.log(e)
+        const formData = new FormData(e.target);
+        for (let [name, value] of formData) {
+            console.log(`${name} = ${value}`);
+            body[name] = value;
+        }
+
+        const res = await fetch(`https://fmda-api.vercel.app/api/exams/${examId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        })
+        const response = await res.json();
+        if (response.error) {
+            alert(response.error);
+        }
+        else {
+            window.location.replace("/admin")
+        }
     }
     const [loading, setLoading] = useState(false);
     const [exam, setExam] = useState({
