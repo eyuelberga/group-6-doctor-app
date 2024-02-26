@@ -1,95 +1,71 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import './App.css';
-import fakeData from "./MOCK_DATA.json";
-import { useTable } from "react-table";
-import Navbar from '../components/Navbar'
-
-import { useApi } from './hooks/use-api';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import JsonTable from "../JsonTable"
 
 function PatientPage() {
-    const data = React.useMemo(() => fakeData, []);
-    const columns = React.useMemo(() => [
+    const { patientId } = useParams();
+    const [loading, setLoading] = useState(false);
+    const [patient, setPatient] = useState({
+        "patientId": "",
+        "age": undefined,
+        "sex": undefined,
+        "zipCode": "",
+        "bmi": undefined,
+    });
 
-            {
-                Header: "Patient ID",
-                accessor: "Patient ID"
-            },
+    useEffect(async () => {
+        setLoading(false);
+        if (patientId) {
+            const res = await fetch(`api/patient/${patientId}`, {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            });
+            const data = await res.json();
+            const exams = data.exams;
+            setPatient(exams[0]);
+        }
 
-            {
-                Header: "Image",
-                accessor: "Image"
-            },
+        setLoading(false);
 
-            {
-                Header: "Key Findings",
-                accessor: "Key Findings"
-            },
+    }, [])
 
-            {
-                Header: "Brixia Score",
-                accessor: "Brixia Score"
-            },
+    const [jsonData, setJsonData] = useState(null)
 
-            {
-                Header: "Age",
-                accessor: "Age"
-            },
+    useEffect(()=>{
+        fetch(`https://fmda-api.vercel.app/api/patient/${patientId}`)
+            .then(res => {
+               return res.json();
+            })
+            .then(data =>{
+                // make an array based off the data
+                console.log(data);
+                const array = Object.entries(data);
+                console.log(array[1][1]);
+                const filteredData = array[1][1].filter(obj => obj !== null && obj !== undefined);
+                console.log(filteredData);
+                console.log(filteredData[1]);
+    
+                setJsonData(filteredData);
+                // console.log(jsonData[0]);
+    
+            })
+        // Can use to access state
+        // When click exam id -> routes to a page with exam viewer
+        // Grab the exam -> give to ExamViewer
+      }, []); 
 
-            {
-                Header: "Sex",
-                accessor: "Sex"
-            },
-
-            {
-                Header: "BMI",
-                accessor: "BMI"
-            },
-
-            {
-                Header: "Zip Code",
-                accessor: "Zip Code"
-            },
-        ], 
-        []
-    );
-
-    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns,data });
-
+    // const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ });
     return (
-        <div className="PatientPage">
-            <div>
-                <table {...getTableProps()}>
-                    <thead>
-                        {headerGroups.map((headerGroup) => (
-                            <tr {...headerGroup.getHeaderGroupProps()}>
-                                {headerGroup.headers.map((column) => (
-                                    <th {...column.getHeaderProps()}>
-                                        {column.render("Header")}
-                                    </th>
-                                ))}
-                            </tr>
-                        ))}
-                    </thead>
-                    <tbody {...getTableBodyProps()}>
-                        {rows.map((row) => {
-                            prepareRow(row)
-                            return (
-                                <tr {...row.getRowProps()}>
-                                    {row.cells.map((cell) => (
-                                        <td {...cell.getCellProps()}>
-                                            {cell.render("Cell")}
-                                        </td>
-                                    ))}
-                                </tr>
-                            )
-                        })}
-                    </tbody>
-                </table>
-            </div>
+        <div>
+            <JsonTable jsonData={jsonData} />
+
+        
         </div>
-    );
+    )
+
+
+    
 }
 
 export default PatientPage;

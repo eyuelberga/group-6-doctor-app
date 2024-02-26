@@ -5,12 +5,16 @@ import ExamViewer from "./ExamViewer";
 import ExamViewer2 from "./ExamViewer2";
 import UpdateExam from "./pages/updateExam";
 import CreateExam from "./pages/createExam";
+import PatientPage from "./pages/patientPage";
 // import PatientPage from "./pages/patientPage";
 import { useState, useEffect } from 'react';
 import {useLocation, useParams } from 'react-router-dom'; // Import from React Router
 
 const  Navbar = () => {
-
+    const handleLinkClick = () => {
+        // Reload the page when the link is clicked
+        window.reload();
+    };
     const [currentPage, setCurrentPage] = useState('exams');
     const location = useLocation();
 
@@ -41,11 +45,11 @@ const  Navbar = () => {
         <h1> Doctor App</h1>
         <div className="links">
             {/* Links to Pages  */}
-            <Link to= '/exams'> Exams </Link>
-            <Link to= '/admin'> Admin </Link>
+            <Link to= '/exams' onClick={handleLinkClick}> Exams </Link>
+            <Link to= '/admin' onClick={handleLinkClick}> Admin </Link>
             { (currentPage == 'admin' || currentPage === 'update') && (
                 <>
-                    <Link to= '/exams/create' > Create Exam</Link>
+                    <Link to= '/exams/create' onClick={handleLinkClick} > Create Exam</Link>
                 </>
             )
 
@@ -62,7 +66,7 @@ const  Navbar = () => {
             <Route path="/exam/:examId" element={<ExamViewer/>} />
             <Route path="/exam/:examId/update" element={<UpdateExam/>} />
             <Route path="/exams/create" element={<CreateExam/>} />
-            {/* <Route path="/patient/patiendId:" element={<PatientPage/>} /> */}
+            <Route path="/patient/:patientId" element={<PatientPage/>} />
 
 
         </Routes>
