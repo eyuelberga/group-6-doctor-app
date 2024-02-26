@@ -11,7 +11,10 @@ import { useState, useEffect } from 'react';
 import {useLocation, useParams } from 'react-router-dom'; // Import from React Router
 
 const  Navbar = () => {
-
+    const handleLinkClick = () => {
+        // Reload the page when the link is clicked
+        window.reload();
+    };
     const [currentPage, setCurrentPage] = useState('exams');
     const location = useLocation();
 
@@ -42,11 +45,11 @@ const  Navbar = () => {
         <h1> Doctor App</h1>
         <div className="links">
             {/* Links to Pages  */}
-            <Link to= '/exams'> Exams </Link>
-            <Link to= '/admin'> Admin </Link>
+            <Link to= '/exams' onClick={handleLinkClick}> Exams </Link>
+            <Link to= '/admin' onClick={handleLinkClick}> Admin </Link>
             { (currentPage == 'admin' || currentPage === 'update') && (
                 <>
-                    <Link to= '/exams/create' > Create Exam</Link>
+                    <Link to= '/exams/create' onClick={handleLinkClick} > Create Exam</Link>
                 </>
             )
 
