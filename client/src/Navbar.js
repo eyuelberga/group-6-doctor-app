@@ -5,6 +5,7 @@ import ExamViewer from "./ExamViewer";
 import ExamViewer2 from "./ExamViewer2";
 import UpdateExam from "./pages/updateExam";
 import CreateExam from "./pages/createExam";
+import PatientPage from "./pages/patientPage";
 // import PatientPage from "./pages/patientPage";
 import { useState, useEffect } from 'react';
 import {useLocation, useParams } from 'react-router-dom'; // Import from React Router
@@ -62,7 +63,7 @@ const  Navbar = () => {
             <Route path="/exam/:examId" element={<ExamViewer/>} />
             <Route path="/exam/:examId/update" element={<UpdateExam/>} />
             <Route path="/exams/create" element={<CreateExam/>} />
-            {/* <Route path="/patient/patiendId:" element={<PatientPage/>} /> */}
+            <Route path="/patient/:patientId" element={<PatientPage/>} />
 
 
         </Routes>
