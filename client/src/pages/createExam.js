@@ -25,9 +25,7 @@ function createExam() {
     }
     
 
-    return <div class="container">
-
-       <form class="row" onSubmit={handleSubmit}>
+    return  <form class="row mt-3" onSubmit={handleSubmit}>
             <div class="col-md-6 col-12">
                 <h4>Patient Info</h4>
                 <div class="form-group mb-3">
@@ -75,7 +73,7 @@ function createExam() {
             </div>
             <button class="btn btn-primary" type="submit">Create</button>
         </form>
-    </div>
+
 }
 
 export default createExam;

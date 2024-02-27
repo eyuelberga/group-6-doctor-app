@@ -36,9 +36,7 @@ function UpdateExam() {
         setLoading(false);
 
     }, [])
-    return <div class="container">
-
-        {loading ? "Loading please wait..." : <form class="row" onSubmit={handleSubmit}>
+    return <>{loading ? "Loading please wait..." : <form class="row mt-3" onSubmit={handleSubmit}>
             <div class="col-md-6 col-12">
                 <h4>Patient Info</h4>
                 <div class="form-group mb-3">
@@ -86,7 +84,8 @@ function UpdateExam() {
             </div>
             <button class="btn btn-primary" type="submit">Update</button>
         </form>}
-    </div>
+        </>
+
 }
 
 export default UpdateExam;
