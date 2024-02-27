@@ -16,12 +16,12 @@ const ExamViewer = () => {
   // Fetch detailed information about the selected exam using examId
   // You can use this iformation to render the details on this page
   useEffect(() => {
-   // Fetch exam
-      fetch(`https://fmda-api.vercel.app/api/exams/${examId}`)
-      .then( res=>{
+    // Fetch exam
+    fetch(`https://fmda-api.vercel.app/api/exams/${examId}`)
+      .then(res => {
         return res.json();
       })
-      .then(data =>{
+      .then(data => {
         console.log(data);
         const array = Object.entries(data);
         console.log(array[1][1]);
@@ -29,31 +29,32 @@ const ExamViewer = () => {
         setLoading(false)
       })
 
-  },[]);
+  }, []);
 
-  if(loading){
+  if (loading) {
     return <p>Loading...</p>; // Display a loading message or spinner while data is being fetched
   }
-  
+
 
   return (
-    <div>
-      <h2>Exam Details</h2>
-      <p> ID: {exam.examId}</p>
-      <p> Patient ID: {exam.patientId}</p>
-      <p> Age: {exam.age}</p>
-      <p> Sex: {exam.sex}</p>
-      <p>zip: {exam.zipCode}</p>
-      <p>BMI: {exam.bmi}</p>
-      <p> _v: {exam.__v}</p>
-      <p>Exam ID: {exam.examId}</p>
-      <p>keyFindings: {exam.keyFindings}</p>
-      <p>brixiaScores: {exam.brixiaScores}</p>
-      <img
-          src={exam.imageURL}
-          alt={`Image Not Found`}
-          style={{ maxWidth: '50px', maxHeight: '50px' }}
-        />
+    <div className='mb-3'>
+
+      <div className="card">
+        <div className="card-header">
+          Exam Details
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">ID: <strong>{exam.examId}</strong> </li>
+          <li class="list-group-item">Patient ID: <strong>{exam.patientId}</strong> </li>
+          <li class="list-group-item">Age: <strong>{exam.age}</strong> </li>
+          <li class="list-group-item">Sex: <strong>{exam.sex}</strong> </li>
+          <li class="list-group-item">Zip Code: <strong>{exam.zipCode}</strong> </li>
+          <li class="list-group-item">BMI: <strong>{exam.bmi}</strong> </li>
+          <li class="list-group-item">brixiaScores: <strong>{exam.brixiaScores}</strong> </li>
+          <li class="list-group-item">Key Findings: <strong>{exam.keyFindings}</strong> </li>
+        </ul>
+        <img src={exam.imageURL} className="card-img-bottom" style={{ height: "500px", objectFit: "contain" }} alt="Image Not Found"></img>
+      </div>
 
     </div>
   );

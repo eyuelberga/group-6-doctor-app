@@ -132,11 +132,11 @@ const JsonTable = ({ jsonData }) => {
                                         <a href= { row.cells[1]}> {console.log(row.cells[1].value)}</a> */}
                     
                     {/* <a href={`/exam/${rows.cells[1].value}/update`}> Update</a> */}
-                    {row && row.cells && row.cells.length >0 && <Link to={`/exam/${row.cells[1].value}/update`}> Update</Link>}
+                    {row && row.cells && row.cells.length >0 && <Link className='btn btn-outline-primary' to={`/exam/${row.cells[1].value}/update`}> Update</Link>}
 
                   </td>
                   <td>
-                  {row && row.cells && row.cells.length >0 && <button onClick={()=>{handleDelete(row.cells[1].value)}}>Delete</button>}
+                  {row && row.cells && row.cells.length >0 && <button className='btn btn-outline-danger' onClick={()=>{handleDelete(row.cells[1].value)}}>Delete</button>}
                     {/* <button onClick={()=>{handleDelete(rows.cells[1].value)}}>Delete</button> */}
                   </td>
                 </>
