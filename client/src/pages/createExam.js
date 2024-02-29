@@ -74,7 +74,7 @@ function createExam() {
                 </div>
             </div>
             <button class="btn btn-primary" type="submit">Create</button>
-            <button class="btn btn-primary" type="submit">Camcel</button>
+            <a href="/admin" class="btn btn-light mt-3">Camcel</a>
         </form>
     </div>
 }
